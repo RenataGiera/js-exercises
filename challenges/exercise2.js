@@ -6,12 +6,12 @@ export function getSquares(nums) {
 export function camelCaseWords(words) {
   if (words === undefined) throw new Error("words is required");
   let wordsCamelCase = [];
-  wordsCamelCase.push(words[0]);
-	for (let i =1; i<words.length; i++){
-		let word = words[i];
-		wordsCamelCase.push(word.charAt(0).toUpperCase() + word.slice(1));
-	}
-  return wordsCamelCase.join('')
+  wordsCamelCase.push(words[0].charAt(0).toLowerCase() + words[0].slice(1));
+  for (let i = 1; i < words.length; i++) {
+    let word = words[i];
+    wordsCamelCase.push(word.charAt(0).toUpperCase() + word.slice(1));
+  }
+  return wordsCamelCase.join("");
 }
 
 export function getTotalSubjects(people) {
