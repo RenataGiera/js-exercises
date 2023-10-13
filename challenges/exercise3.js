@@ -65,18 +65,25 @@ export function getCities(users) {
 export function getSquareRoots(nums) {
   if (!nums) throw new Error("nums is required");
   const squareRootsArr = [];
-	nums.forEach((num) => {
-		const squareRoot = parseFloat(Math.sqrt(num).toFixed(2));
-  	squareRootsArr.push(squareRoot);
-	});
-    
+  nums.forEach((num) => {
+    const squareRoot = parseFloat(Math.sqrt(num).toFixed(2));
+    squareRootsArr.push(squareRoot);
+  });
+
   return squareRootsArr;
 }
 
 export function findSentencesContaining(sentences, str) {
   if (!sentences) throw new Error("sentences is required");
   if (!str) throw new Error("str is required");
-  // Your code here
+  const sentencesWithStr = [];
+  for (let i = 0; i < sentences.length; i++) {
+    const sentence = sentences[i];
+    if (sentence.toLowerCase().includes(str.toLowerCase())) {
+      sentencesWithStr.push(sentence);
+    }
+  }
+  return sentencesWithStr;
 }
 
 export function getLongestSides(triangles) {
