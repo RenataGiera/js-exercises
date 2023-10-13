@@ -28,14 +28,15 @@ export function findNamesBeginningWith(names, char) {
 
 export function findVerbs(words) {
   if (!words) throw new Error("words is required");
+
   const verbs = [];
 
-  for (let i = 0; i < words.length; i++) {
-    const word = words[i];
+  words.forEach((word) => {
     if (word.slice(0, 3) === "to ") {
       verbs.push(word);
     }
-  }
+  });
+
   return verbs;
 }
 
