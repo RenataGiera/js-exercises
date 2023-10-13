@@ -42,7 +42,14 @@ export function findVerbs(words) {
 
 export function getIntegers(nums) {
   if (!nums) throw new Error("nums is required");
-  // Your code here
+  const integers = [];
+  for (let i = 0; i < nums.length; i++) {
+    const num = nums[i];
+    if (Number.isInteger(num)) {
+      integers.push(num);
+    }
+  }
+  return integers;
 }
 
 export function getCities(users) {
