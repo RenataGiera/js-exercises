@@ -65,11 +65,11 @@ export function getCities(users) {
 export function getSquareRoots(nums) {
   if (!nums) throw new Error("nums is required");
   const squareRootsArr = [];
-  for (let i = 0; i < nums.length; i++) {
-    const num = nums[i];
-    const squareRoot = parseFloat(Math.sqrt(num).toFixed(2));
-    squareRootsArr.push(squareRoot);
-  }
+	nums.forEach((num) => {
+		const squareRoot = parseFloat(Math.sqrt(num).toFixed(2));
+  	squareRootsArr.push(squareRoot);
+	});
+    
   return squareRootsArr;
 }
 
