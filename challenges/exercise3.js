@@ -14,14 +14,15 @@ export function findSmallNums(nums) {
 export function findNamesBeginningWith(names, char) {
   if (!names) throw new Error("names is required");
   if (!char) throw new Error("char is required");
+
   const NamesBeginningWith = [];
 
-  for (let i = 0; i < names.length; i++) {
-    let name = names[i];
+  names.forEach((name) => {
     if (name.charAt(0) === char) {
       NamesBeginningWith.push(name);
     }
-  }
+  });
+
   return NamesBeginningWith;
 }
 
