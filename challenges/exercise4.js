@@ -25,12 +25,16 @@ export const count1sand0s = (str) => {
 
 export const reverseNumber = (n) => {
   if (n === undefined) throw new Error("n is required");
-  return parseInt(n.toString().split('').reverse().join(''))
+  return parseInt(n.toString().split("").reverse().join(""));
 };
 
 export const sumArrays = (arrs) => {
   if (arrs === undefined) throw new Error("arrs is required");
-  // Your code here!
+  let sumArrs = 0;
+	arrs.forEach((arr) => {
+    arr.forEach((elem) => (sumArrs += elem));
+  });
+  return sumArrs;
 };
 
 export const arrShift = (arr) => {
