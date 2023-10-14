@@ -31,7 +31,7 @@ export const reverseNumber = (n) => {
 export const sumArrays = (arrs) => {
   if (arrs === undefined) throw new Error("arrs is required");
   let sumArrs = 0;
-	arrs.forEach((arr) => {
+  arrs.forEach((arr) => {
     arr.forEach((elem) => (sumArrs += elem));
   });
   return sumArrs;
@@ -39,7 +39,7 @@ export const sumArrays = (arrs) => {
 
 export const arrShift = (arr) => {
   if (arr === undefined) throw new Error("arr is required");
-	const firstItem = arr[0];
+  const firstItem = arr[0];
   const lastItem = arr[arr.length - 1];
 
   for (let i = 0; i < arr.length; i++) {
@@ -55,7 +55,14 @@ export const arrShift = (arr) => {
 export const findNeedle = (haystack, searchTerm) => {
   if (haystack === undefined) throw new Error("haystack is required");
   if (searchTerm === undefined) throw new Error("searchTerm is required");
-  // Your code here!
+  let isNeedle = false;
+  for (const key in haystack)
+    if (
+      haystack[key].toString().toLowerCase().includes(searchTerm.toLowerCase())
+    ) {
+      isNeedle = true;
+    }
+  return isNeedle;
 };
 
 export const getWordFrequencies = (str) => {
