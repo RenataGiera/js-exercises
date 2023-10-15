@@ -98,3 +98,18 @@ describe("isItPrime", () => {
     expect(isItPrime([1.6])).toBe(false);
   });
 });
+
+describe("createMatrix", () => {
+  test("it throws an error if not passed a number or a fill", () => {
+    expect(() => {
+      createMatrix();
+    }).toThrow("n is required" || "fill is required");
+  });
+  test("return an array of n arrays, each filled with n items.", () => {
+    expect(createMatrix(3, "foo")).toEqual([
+      ["foo", "foo", "foo"],
+      ["foo", "foo", "foo"],
+      ["foo", "foo", "foo"],
+    ]);
+  });
+});
