@@ -112,4 +112,42 @@ describe("createMatrix", () => {
       ["foo", "foo", "foo"],
     ]);
   });
+  describe("getComplementaryDNA", () => {
+    test("it throws an error if not passed a string", () => {
+      expect(() => {
+        getComplementaryDNA();
+      }).toThrow("str is required");
+    });
+
+    test("returns string where T always pairs with A, and C always pairs with G", () => {
+      expect(getComplementaryDNA("ACTG")).toBe("TGAC");
+    });
+  });
+
+  describe("areWeCovered", () => {
+    test("it throws an error if not passed a string", () => {
+      expect(() => {
+        areWeCovered();
+      }).toThrow("staff is required" || "day is required");
+    });
+    test("returns true when at least 3 staff members are per day", () => {
+      const staffRota = [
+        { name: "Sally", rota: ["Monday", "Tuesday", "Friday"] },
+        { name: "Pedro", rota: ["Saturday", "Sunday", "Tuesday", "Wednesday"] },
+        { name: "Anna", rota: ["Saturday", "Sunday", "Tuesday"] },
+        { name: "Anna", rota: ["Saturday", "Tuesday", "Wednesday"] },
+      ];
+      expect(areWeCovered(staffRota, "Saturday")).toEqual(true);
+    });
+
+    test("returns false when there are not 3 staff members per day", () => {
+      const staffRota = [
+        { name: "Sally", rota: ["Monday", "Tuesday", "Friday"] },
+        { name: "Pedro", rota: ["Saturday", "Sunday", "Tuesday", "Wednesday"] },
+        { name: "Anna", rota: ["Saturday", "Sunday", "Tuesday"] },
+        { name: "Hennry", rota: ["Saturday", "Tuesday", "Wednesday"] },
+      ];
+      expect(areWeCovered(staffRota, "Monday")).toEqual(false);
+    });
+  });
 });
