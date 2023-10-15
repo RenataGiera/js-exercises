@@ -47,7 +47,7 @@ export const getComplementaryDNA = (str) => {
     C: "G",
     G: "C",
   };
-	
+
   let complementaryDNA = "";
   for (let i = 0; i < str.length; i++) {
     const base = str[i];
@@ -63,6 +63,17 @@ export const getComplementaryDNA = (str) => {
  */
 export const isItPrime = (n) => {
   if (n === undefined) throw new Error("n is required");
+
+	if ( n <= 1 || n % 1 !== 0) {
+    return false;
+  }
+	
+  for (let i = 2; i < n; i++) {
+    if (n % i === 0) {
+      return false;
+    }
+  }
+  return true;
 };
 
 /**

@@ -65,3 +65,36 @@ describe("getComplementaryDNA", () => {
     expect(getComplementaryDNA("ACTG")).toBe("TGAC");
   });
 });
+
+describe("isItPrime", () => {
+  test("it throws an error if not passed a number", () => {
+    expect(() => {
+      isItPrime();
+    }).toThrow("n is required");
+  });
+
+  test("returns true when n is a prime number - can only be divided evenly by 1 and itself", () => {
+    expect(isItPrime([3])).toBe(true);
+    expect(isItPrime([11])).toBe(true);
+    expect(isItPrime([83])).toBe(true);
+  });
+
+  test("returns false when n is not a prime number", () => {
+    expect(isItPrime([4])).toBe(false);
+    expect(isItPrime([12])).toBe(false);
+    expect(isItPrime([80])).toBe(false);
+  });
+
+  test("returns false when n = 1", () => {
+    expect(isItPrime([1])).toBe(false);
+  });
+
+  test("returns false when n is a negative numbers", () => {
+    expect(isItPrime([-3])).toBe(false);
+    expect(isItPrime([-4])).toBe(false);
+  });
+
+  test("returns false when n is a decimal number", () => {
+    expect(isItPrime([1.6])).toBe(false);
+  });
+});
