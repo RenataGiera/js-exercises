@@ -53,3 +53,15 @@ describe("isValidDNA", () => {
     expect(isValidDNA("cGtA")).toBe(true);
   });
 });
+
+describe("getComplementaryDNA", () => {
+  test("it throws an error if not passed a string", () => {
+    expect(() => {
+      getComplementaryDNA();
+    }).toThrow("str is required");
+  });
+
+  test("returns string where T always pairs with A, and C always pairs with G", () => {
+    expect(getComplementaryDNA("ACTG")).toBe("TGAC");
+  });
+});
